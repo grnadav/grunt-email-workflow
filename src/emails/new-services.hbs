@@ -1,0 +1,54 @@
+---
+layout: default.hbs
+subject: New Services Discovered
+---
+<span class="preheader">New services discovered: {{#each new-services.discovered}}{{ name }}, {{/each}} </span>
+<table class="main">
+    <tr>
+        <td class="wrapper">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Service</th>
+                    <th>Readiness Score</th>
+                </tr>
+
+                {{#each new-services.discovered}}
+                <tr>
+                    <td><img class="service-icon" src="https://s3-us-west-2.amazonaws.com/services-images/{{icon}}"></td>
+                    <td>
+                        <table>
+                            <tr>
+                            <td class="service-name">{{name}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    {{#each categories}}
+                                        <span class="service-category">{{this}}</span>
+                                    {{/each}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="risk-icon {{readiness}}"></td>
+                </tr>
+                {{/each}}
+
+            </table>
+        </td>
+    </tr>
+</table>
+
+<div class="footer">
+    <table>
+        <tr>
+            <td class="align-center">
+                <p>Don't like these emails? <a href="{{ default.unsubscribe_url }}">
+                    <unsubscribe>Unsubscribe</unsubscribe>
+                </a>.
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>

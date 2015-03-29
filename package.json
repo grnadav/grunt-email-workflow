@@ -11,6 +11,7 @@
     "grunt-cdn": "^0.6.1",
     "grunt-cloudfiles": "^0.3.0",
     "grunt-contrib-imagemin": "^0.9.3",
+    "grunt-contrib-compass": "^0.7.2",
     "grunt-contrib-sass": "^0.7.3",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-litmus": "^0.1.8",

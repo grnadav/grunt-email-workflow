@@ -1,8 +1,18 @@
 module.exports = function(grunt) {
 
 
+    // Configurable paths for the application
+    var app,appConfig;
+    app = appConfig = {
+        app: 'src',
+        dist: 'dist'
+    };
+
 
     grunt.initConfig({
+
+        yeoman: appConfig,
+
         pkg: grunt.file.readJSON('package.json'),
 
         // secrets.json is ignored in git because it contains sensitive data
@@ -25,6 +35,30 @@ module.exports = function(grunt) {
           }
         },
 
+
+        // Compiles Sass to CSS and generates necessary files if requested
+        compass: {
+            options: {
+                sassDir: '<%= yeoman.app %>/css/scss',
+                cssDir: '<%= yeoman.app %>/css',
+                imagesDir: '<%= yeoman.app %>/img',
+                relativeAssets: false,
+                assetCacheBuster: false,
+                raw: 'Sass::Script::Number.precision = 10\n'
+            },
+            dist: {
+                options: {
+                    debugInfo: true,
+                    sourcemap: true
+                }
+            },
+            server: {
+                options: {
+                    debugInfo: true,
+                    sourcemap: true
+                }
+            }
+        },
 
 
 
@@ -199,8 +233,13 @@ module.exports = function(grunt) {
 
     });
 
+    // Load grunt tasks automatically
+    //require('load-grunt-tasks')(grunt);
+
+
     // Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('assemble');
     grunt.loadNpmTasks('grunt-mailgun');
     grunt.loadNpmTasks('grunt-premailer');
@@ -212,7 +251,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     // Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['sass','assemble','premailer', 'imagemin']);
+    grunt.registerTask('default', [
+        'compass',
+        'assemble',
+        'premailer',
+        'imagemin'
+    ]);
 
     // Use grunt send if you want to actually send the email to your inbox
     grunt.registerTask('send', ['mailgun']);
@@ -222,5 +266,9 @@ module.exports = function(grunt) {
 
     // Separate task to manually upload files to Amazon S3 bucket
     grunt.registerTask('upload', ['s3']);
+
+    // Separate task to manually upload files to Amazon S3 bucket
+    grunt.registerTask('compasser', ['compass']);
+
 
 };

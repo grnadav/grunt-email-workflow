@@ -1,0 +1,30 @@
+@import "compass/css3";
+@import "brand";
+
+
+$size: 20px;
+
+.risk-icon {
+  height: $size;
+  width: $size;
+  background-repeat: no-repeat;
+
+  &.high {
+    background-image: image-url("https://s3-us-west-2.amazonaws.com/skyformation-images/circle-red.png");
+  }
+  &.medium {
+    background-image: image-url("https://s3-us-west-2.amazonaws.com/skyformation-images/circle-orange.png");
+  }
+  &.low {
+    background-image: image-url("https://s3-us-west-2.amazonaws.com/skyformation-images/circle-green.png");
+  }
+}
+
+.service-category {
+  display: inline-block;
+  padding: 2px 4px;
+  margin: 3px;
+  color: #fff;
+  background-color: $skyformation-green;
+  font-size: 80%;
+}
