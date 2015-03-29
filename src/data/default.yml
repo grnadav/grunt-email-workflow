@@ -1,3 +1,5 @@
 twitter_url: "http://twitter.com/leemunroe"
 twitter_handle: "@leemunroe"
 unsubscribe_url: "http://ec2-52-11-112-162.us-west-2.compute.amazonaws.com:8080/index.html#/settings/discovery/smtp"
+services_url: "http://ec2-52-11-112-162.us-west-2.compute.amazonaws.com:8080/index.html#/discover/services"
+service360_url: "http://ec2-52-11-112-162.us-west-2.compute.amazonaws.com:8080/index.html#/discover/service360?service="

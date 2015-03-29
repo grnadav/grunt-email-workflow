@@ -107,7 +107,6 @@ module.exports = function(grunt) {
         },
 
 
-
         // Optimize images
         imagemin: {
           dynamic: {
@@ -254,8 +253,8 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'compass',
         'assemble',
-        'premailer',
-        'imagemin'
+        'premailer'
+        //,'imagemin'
     ]);
 
     // Use grunt send if you want to actually send the email to your inbox

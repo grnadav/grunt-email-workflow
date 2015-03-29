@@ -2,11 +2,13 @@
 @import "brand";
 
 
-$size: 20px;
+$size: 30px;
 
+.service-readiness-col-item {
+  background-position: 50%;
+}
 .risk-icon {
-  height: $size;
-  width: $size;
+  background-size: $size;
   background-repeat: no-repeat;
 
   &.high {
@@ -27,4 +29,31 @@ $size: 20px;
   color: #fff;
   background-color: $skyformation-green;
   font-size: 80%;
+}
+
+.service-icon-col {
+  width: 55px;
+}
+.service-name-col {
+  text-align: left;
+}
+.service-readiness-col {
+  width: 85px;
+}
+
+.service-icon-col-item {
+  vertical-align: middle;
+
+  > .service-icon {
+    vertical-align: middle;
+    width: 38px;
+    padding: 6px;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+  }
+
+}
+
+.service-name {
+
 }
